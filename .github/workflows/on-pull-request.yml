@@ -13,6 +13,8 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
+              with:
+                  repository: "https://github.com/PreTeXtBook/pretext.git"
 
             - name: Run action
               uses: siefkenj/pretext-build-action@main

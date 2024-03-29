@@ -14,4 +14,4 @@ runs:
               echo "Hello, world!"
               echo "The project root is ${{ inputs.project-root }}"
               echo `pwd`
-              echo `ls -l ${{ inputs.project-root }}`
+              echo `ls ${{ inputs.project-root }}`
