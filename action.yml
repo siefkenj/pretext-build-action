@@ -1,0 +1,16 @@
+name: "PreTeXt Build"
+description: "Builds a project with PreTeXt"
+inputs:
+    project-root:
+        description: "The root directory of the project. I.e., the folder where your `project.ptx` is located."
+        required: false
+        default: "."
+runs:
+    using: "composite"
+    steps:
+        - name: Test
+          shell: bash
+          run: |
+              echo "Hello, world!"
+              echo "The project root is ${{ inputs.project-root }}"
+              echo ls -l ${{ inputs.project-root }}
