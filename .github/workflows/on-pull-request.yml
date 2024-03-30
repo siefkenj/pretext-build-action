@@ -22,14 +22,8 @@ jobs:
                   repository: "PreTeXtBook/pretext"
                   path: pretext
 
-            - name: Echo
-              run: |
-                  ls -a
-                  ls -ad action
-                  echo "Hello, World!"
-
             - name: Run action
               # uses: siefkenj/pretext-build-action@main
               uses: ./action
               with:
-                  project-root: "examples/minimal"
+                  project-root: "pretext/examples/minimal"
