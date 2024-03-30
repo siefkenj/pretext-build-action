@@ -9,6 +9,10 @@ inputs:
         description: "The command to run to build the project. For example `build html` would execute `pretext build html`."
         required: false
         default: "build"
+    output-dir:
+        description: "The directory where the generated output should be placed."
+        required: false
+        default: "output"
 runs:
     using: "docker"
     image: Dockerfile

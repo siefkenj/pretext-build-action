@@ -13,16 +13,20 @@ jobs:
         steps:
             - name: Checkout Action
               uses: actions/checkout@v4
-            
+              with:
+                  path: action
+
             - name: Checkout PreTeXt examples
               uses: actions/checkout@v4
               with:
                   repository: "PreTeXtBook/pretext"
+                  path: pretext
 
             - name: Echo
               run: |
-                ls -a
-                echo "Hello, World!"
+                  ls -a
+                  ls -ad action
+                  echo "Hello, World!"
 
             - name: Run action
               # uses: siefkenj/pretext-build-action@main
