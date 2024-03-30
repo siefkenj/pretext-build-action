@@ -19,6 +19,11 @@ jobs:
               with:
                   repository: "PreTeXtBook/pretext"
 
+            - name: Echo
+              run: |
+                ls -a
+                echo "Hello, World!"
+
             - name: Run action
               # uses: siefkenj/pretext-build-action@main
               uses: ./

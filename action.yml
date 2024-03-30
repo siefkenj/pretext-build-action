@@ -5,6 +5,10 @@ inputs:
         description: "The root directory of the project. I.e., the folder where your `project.ptx` is located."
         required: false
         default: "."
+    pretext-command:
+        description: "The command to run to build the project. For example `build html` would execute `pretext build html`."
+        required: false
+        default: "build"
 runs:
     using: "docker"
     image: Dockerfile
