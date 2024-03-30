@@ -21,16 +21,26 @@ jobs:
               with:
                   repository: "PreTeXtBook/pretext"
                   path: pretext
+                  output: out/out1
 
             - name: Run action on examples/minimal
               # uses: siefkenj/pretext-build-action@main
               uses: ./action
               with:
                   project-root: "pretext/examples/minimal"
+                  output: out/out2
 
             - name: Run action with custom pretext/pretext path
               # uses: siefkenj/pretext-build-action@main
               uses: ./action
               with:
                   project-root: "pretext/examples/minimal"
-                  pretext-location: "pretext"
+                  pretext-commit: 94175d7
+                  output: out/out3
+
+            # Save the output of out/ as an artifact
+            - name: Archive output
+              uses: actions/upload-artifact@v3
+              with:
+                  name: output
+                  path: out/

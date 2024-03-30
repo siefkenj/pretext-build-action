@@ -41,7 +41,9 @@ if [ -n "$PRETEXT_COMMIT" ]; then
     echo -e "${RED}Using custom pretext/pretext commit $PRETEXT_COMMIT${NC}"
     echo -e "${GREEN}Fetching pretext/pretext commit $PRETEXT_COMMIT${NC}"
     curl -L "https://github.com/PreTextBook/pretext/archive/$PRETEXT_COMMIT.tar.gz" -o pretext.tar.gz
-    ls pretext.tar.gz
+    
+    # extract to ~/.ptx/ but apply --strip-components=1 to remove the top-level directory
+    tar -xzf pretext.tar.gz -C ~/.ptx/ --strip-components=1
 
     pushd "$PROJECT_ROOT"
 fi
