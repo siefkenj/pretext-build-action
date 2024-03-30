@@ -30,6 +30,6 @@ jobs:
 
             - name: Run action
               # uses: siefkenj/pretext-build-action@main
-              uses: ./
+              uses: ./action
               with:
                   project-root: "examples/minimal"
