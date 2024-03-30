@@ -27,7 +27,7 @@ inputs:
 runs:
     using: "docker"
     # Use the docker file based on $inputs.features
-    image: Dockerfile.${{ inputs.features }}
+    image: Dockerfile.${{ env.features }}
     args:
         - ${{ inputs.project-root }}
         - ${{ inputs.pretext-command }}
