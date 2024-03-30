@@ -14,9 +14,9 @@ echo "Running pretext command 'pretext $PRETEXT_COMMAND'"
 pretext $PRETEXT_COMMAND
 
 echo "Moving output/ to $OUTPUT_DIR"
-mv output/ "$ABSOLUTE_OUTPUT_DIR"
+mv output "$ABSOLUTE_OUTPUT_DIR"
 
 popd
 
 echo "Listing files in $OUTPUT_DIR"
-ls "$OUTPUT_DIR"
+ls "$OUTPUT_DIR/output"
