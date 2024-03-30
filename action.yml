@@ -16,21 +16,18 @@ inputs:
     pretext-commit:
         description: "[advanced] The SHA commit of PreTeXt (core) to use. This is used to override the `pretext/pretext` script used."
         default: ""
-    features:
-        description: >
-            The features available to `pretext`. Set to `lite` if you're 
-            building pretext-only (e.g. with no LaTeX images), `small` if 
-            you have LaTeX images, and `full` if you have other graphics 
-            formats, like asymptote figures.
-        default: "small"
 
 runs:
     using: "docker"
     # Use the docker file based on $inputs.features
-    image: Dockerfile.${{ env.features }}
+    image: Dockerfile
     args:
         - ${{ inputs.project-root }}
         - ${{ inputs.pretext-command }}
         - ${{ inputs.output-dir }}
         - ${{ inputs.pretext-location }}
         - ${{ inputs.pretext-commit }}
+
+branding:
+    icon: "code"
+    color: "blue"
