@@ -12,7 +12,7 @@ inputs:
     output-dir:
         description: "The directory where the generated output should be placed. It will be placed in a folder called `output/` in this directory."
         required: false
-        default: ${{ inputs.project-root }}
+        default: "."
 runs:
     using: "docker"
     image: Dockerfile
