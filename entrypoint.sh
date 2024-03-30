@@ -53,6 +53,7 @@ echo -e "${GREEN}Running pretext command 'pretext $PRETEXT_COMMAND'${NC}"
 pretext $PRETEXT_COMMAND
 
 echo -e "${GREEN}Moving output/ to $OUTPUT_DIR${NC}"
+mkdir -p "$ABSOLUTE_OUTPUT_DIR"
 mv output "$ABSOLUTE_OUTPUT_DIR"
 
 popd > /dev/null
