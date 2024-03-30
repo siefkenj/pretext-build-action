@@ -13,6 +13,15 @@ inputs:
         description: "The directory where the generated output should be placed. It will be placed in a folder called `output/` in this directory."
         required: false
         default: "."
+    pretext-location:
+        description: "[advanced] The location of PreTeXt (core). This is used to override the `pretext/pretext` script used."
+        required: false
+        default: ""
+    pretext-commit:
+        description: "[advanced] The SHA commit of PreTeXt (core) to use. This is used to override the `pretext/pretext` script used."
+        required: false
+        default: ""
+
 runs:
     using: "docker"
     image: Dockerfile
@@ -20,3 +29,5 @@ runs:
         - ${{ inputs.project-root }}
         - ${{ inputs.pretext-command }}
         - ${{ inputs.output-dir }}
+        - ${{ inputs.pretext-location }}
+        - ${{ inputs.pretext-commit }}

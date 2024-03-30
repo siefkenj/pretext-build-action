@@ -10,6 +10,8 @@ NC="\\033[0m" # No Color
 PROJECT_ROOT=$1
 PRETEXT_COMMAND=$2
 OUTPUT_DIR=$3
+PRETEXT_LOCATION=$4
+PRETEXT_COMMIT=$5
 
 ABSOLUTE_PROJECT_ROOT="$PWD/$PROJECT_ROOT"
 ABSOLUTE_OUTPUT_DIR="$PWD/$OUTPUT_DIR"
@@ -20,6 +22,17 @@ pushd "$PROJECT_ROOT"
 echo -e "${GREEN}Pretext version infomration${GRAY}"
 pretext support
 echo -e "${NC}"
+
+# If $PRETEXT_LOCATION is non-empty, we copy the files at that location to `~/.ptx/`
+if [ -n "$PRETEXT_LOCATION" ]; then
+    popd
+    
+    echo -e "${RED}Using custom pretext/pretext${NC}"
+    echo -e "${GREEN}Copying files from $PRETEXT_LOCATION to ~/.ptx/${NC}"
+    cp -r "$PRETEXT_LOCATION" ~/.ptx/
+
+    pushd "$PROJECT_ROOT"
+fi
 
 
 echo -e "${GREEN}Running pretext command 'pretext $PRETEXT_COMMAND'${NC}"
