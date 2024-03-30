@@ -11,7 +11,10 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout code
+            - name: Checkout Action
+              uses: actions/checkout@v4
+            
+            - name: Checkout PreTeXt examples
               uses: actions/checkout@v4
               with:
                   repository: "PreTeXtBook/pretext"
@@ -19,3 +22,5 @@ jobs:
             - name: Run action
               # uses: siefkenj/pretext-build-action@main
               uses: ./
+              with:
+                  project-root: "examples/minimal"
