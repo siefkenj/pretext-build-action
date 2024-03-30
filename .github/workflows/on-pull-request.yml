@@ -17,4 +17,5 @@ jobs:
                   repository: "PreTeXtBook/pretext"
 
             - name: Run action
-              uses: siefkenj/pretext-build-action@main
+              # uses: siefkenj/pretext-build-action@main
+              uses: ./action.yml
