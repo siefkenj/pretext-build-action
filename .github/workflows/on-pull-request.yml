@@ -22,8 +22,15 @@ jobs:
                   repository: "PreTeXtBook/pretext"
                   path: pretext
 
-            - name: Run action
+            - name: Run action on examples/minimal
               # uses: siefkenj/pretext-build-action@main
               uses: ./action
               with:
                   project-root: "pretext/examples/minimal"
+
+            - name: Run action with custom pretext/pretext path
+              # uses: siefkenj/pretext-build-action@main
+              uses: ./action
+              with:
+                  project-root: "pretext/examples/minimal"
+                  pretext-location: "pretext"
