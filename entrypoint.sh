@@ -14,21 +14,21 @@ OUTPUT_DIR=$3
 ABSOLUTE_PROJECT_ROOT="$PWD/$PROJECT_ROOT"
 ABSOLUTE_OUTPUT_DIR="$PWD/$OUTPUT_DIR"
 
-echo -e "${BLUE}Using project root $PROJECT_ROOT${NC}"
+echo -e "${GREEN}Using project root $PROJECT_ROOT${NC}"
 pushd "$PROJECT_ROOT"
 
-echo -e "${BLUE}Pretext version infomration${GRAY}"
+echo -e "${GREEN}Pretext version infomration${GRAY}"
 pretext support
 echo -e "${NC}"
 
 
-echo -e "${BLUE}Running pretext command 'pretext $PRETEXT_COMMAND'${NC}"
+echo -e "${GREEN}Running pretext command 'pretext $PRETEXT_COMMAND'${NC}"
 pretext $PRETEXT_COMMAND
 
-echo -e "${BLUE}Moving output/ to $OUTPUT_DIR${NC}"
+echo -e "${GREEN}Moving output/ to $OUTPUT_DIR${NC}"
 mv output "$ABSOLUTE_OUTPUT_DIR"
 
 popd
 
-echo -e "${BLUE}Listing files in $OUTPUT_DIR${NC}"
+echo -e "${GREEN}Listing files in $OUTPUT_DIR${NC}"
 ls "$OUTPUT_DIR/output"
