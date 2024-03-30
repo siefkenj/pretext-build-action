@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Some color variables for pretty echoing
-RED="\033[0;31m"
-GREEN="\033[0;32m"
-BLUE="\033[0;34m"
-GRAY="\033[0;37m"
-NC="\033[0m" # No Color
+RED="\\033[0;31m"
+GREEN="\\033[0;32m"
+BLUE="\\033[0;34m"
+GRAY="\\033[0;37m"
+NC="\\033[0m" # No Color
 
 PROJECT_ROOT=$1
 PRETEXT_COMMAND=$2
