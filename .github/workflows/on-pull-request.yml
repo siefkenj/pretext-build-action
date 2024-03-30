@@ -41,6 +41,7 @@ jobs:
               # uses: siefkenj/pretext-build-action@main
               uses: ./action
               with:
+                  project-root: "pretext/examples/minimal"
                   pretext-commit: 94175d7
                   output-dir: out/out3
 

@@ -17,7 +17,7 @@ ABSOLUTE_PROJECT_ROOT="$PWD/$PROJECT_ROOT"
 ABSOLUTE_OUTPUT_DIR="$PWD/$OUTPUT_DIR"
 
 echo -e "${GREEN}Using project root $PROJECT_ROOT${NC}"
-pushd "$PROJECT_ROOT"
+pushd "$PROJECT_ROOT" > /dev/null
 
 echo -e "${GREEN}Pretext version infomration${GRAY}"
 pretext support
@@ -31,7 +31,7 @@ if [ -n "$PRETEXT_LOCATION" ]; then
     echo -e "${GREEN}Copying files from $PRETEXT_LOCATION to ~/.ptx/${NC}"
     cp -r "$PRETEXT_LOCATION" ~/.ptx/
 
-    pushd "$PROJECT_ROOT"
+    pushd "$PROJECT_ROOT" > /dev/null
 fi
 
 # If $PRETEXT_COMMIT is non-empty, fetch that commit and extract it to `~/.ptx/`
@@ -43,9 +43,10 @@ if [ -n "$PRETEXT_COMMIT" ]; then
     curl -L "https://github.com/PreTextBook/pretext/archive/$PRETEXT_COMMIT.tar.gz" -o pretext.tar.gz
     
     # extract to ~/.ptx/ but apply --strip-components=1 to remove the top-level directory
+    mkdir -p ~/.ptx/
     tar -xzf pretext.tar.gz -C ~/.ptx/ --strip-components=1
 
-    pushd "$PROJECT_ROOT"
+    pushd "$PROJECT_ROOT" > /dev/null
 fi
 
 
