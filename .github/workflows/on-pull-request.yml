@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout Action
+            - name: Checkout self
               uses: actions/checkout@v4
               with:
                   path: action
@@ -22,14 +22,32 @@ jobs:
                   repository: "PreTeXtBook/pretext"
                   path: pretext
 
-            - name: Echo
-              run: |
-                  ls -a
-                  ls -ad action
-                  echo "Hello, World!"
-
-            - name: Run action
+            - name: Run action on examples/minimal
               # uses: siefkenj/pretext-build-action@main
               uses: ./action
               with:
-                  project-root: "examples/minimal"
+                  project-root: "pretext/examples/minimal"
+                  output-dir: out/out1
+
+            - name: Run action with custom pretext/pretext path
+              # uses: siefkenj/pretext-build-action@main
+              uses: ./action
+              with:
+                  project-root: "pretext/examples/minimal"
+                  pretext-commit: 94175d7
+                  output-dir: out/out2
+            
+            - name: Run action with custom pretext/pretext commit
+              # uses: siefkenj/pretext-build-action@main
+              uses: ./action
+              with:
+                  project-root: "pretext/examples/minimal"
+                  pretext-commit: 94175d7
+                  output-dir: out/out3
+
+            # Save the output of out/ as an artifact
+            - name: Archive output
+              uses: actions/upload-artifact@v4
+              with:
+                  name: output
+                  path: out/

@@ -3,18 +3,31 @@ description: "Builds a project with PreTeXt"
 inputs:
     project-root:
         description: "The root directory of the project. I.e., the folder where your `project.ptx` is located."
-        required: false
         default: "."
     pretext-command:
         description: "The command to run to build the project. For example `build html` would execute `pretext build html`."
-        required: false
         default: "build"
     output-dir:
-        description: "The directory where the generated output should be placed."
-        required: false
-        default: "output"
+        description: "The directory where the generated output should be placed. It will be placed in a folder called `output/` in this directory."
+        default: "."
+    pretext-location:
+        description: "[advanced] The location of PreTeXt (core). This is used to override the `pretext/pretext` script used."
+        default: ""
+    pretext-commit:
+        description: "[advanced] The SHA commit of PreTeXt (core) to use. This is used to override the `pretext/pretext` script used."
+        default: ""
+
 runs:
     using: "docker"
+    # Use the docker file based on $inputs.features
     image: Dockerfile
     args:
         - ${{ inputs.project-root }}
+        - ${{ inputs.pretext-command }}
+        - ${{ inputs.output-dir }}
+        - ${{ inputs.pretext-location }}
+        - ${{ inputs.pretext-commit }}
+
+branding:
+    icon: "code"
+    color: "blue"
