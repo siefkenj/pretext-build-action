@@ -23,7 +23,7 @@ on:
     # Runs both on pull requests and when a pull request is merged.
     push:
         branches: ["master", "main"]
-    pull:
+    pull_request:
         branches: ["master", "main"]
 
 jobs:
