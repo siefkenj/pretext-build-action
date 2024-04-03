@@ -29,7 +29,7 @@ on:
 jobs:
     # This job builds the book. You can download the resulting build "artifact" by
     # navigating to your actions manager in Github, selecting this run, and clicking
-    # "download artifact" on the "webpage" artifact.
+    # "download artifact" on the "website" artifact.
     build:
         runs-on: ubuntu-latest
 
@@ -46,7 +46,7 @@ jobs:
             - name: Bundle output/web as artifact
               uses: actions/upload-artifact@v4
               with:
-                  name: webpage
+                  name: website
                   path: output/web
 
     # This job deploys the artifact built in the previous job to Github pages.
