@@ -16,6 +16,11 @@ PRETEXT_COMMIT=$5
 ABSOLUTE_PROJECT_ROOT="$PWD/$PROJECT_ROOT"
 ABSOLUTE_OUTPUT_DIR="$PWD/$OUTPUT_DIR"
 
+if [ -f requirements.txt ]; then
+    echo -e "${GREEN}Installing Python libraries specified in requirements.txt${NC}"
+    pip install -r requirements.txt
+fi
+
 echo -e "${GREEN}Using project root $PROJECT_ROOT${NC}"
 pushd "$PROJECT_ROOT" > /dev/null
 
